@@ -1,0 +1,59 @@
+import 'package:flutter/material.dart';
+
+class NoteItem extends StatelessWidget {
+  const NoteItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.amber,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          ListTile(
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+            title: const Padding(
+              padding: EdgeInsets.only(bottom: 12),
+              child: Text(
+                "Flutter Tips",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            subtitle: const Text(
+              "Learn how to build beautiful apps with Flutter.",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            trailing: IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.delete,
+                size: 32,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(right: 24),
+            child: Text(
+              "11/20/2028",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 15,
+          )
+        ],
+      ),
+    );
+  }
+}
