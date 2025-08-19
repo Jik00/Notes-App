@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/widgets/add_note_dialog.dart';
 import 'package:notes_app/widgets/custom_appbar.dart';
 import 'package:notes_app/widgets/notes_listview.dart';
 
@@ -9,8 +10,14 @@ class NotesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Colors.amber,
+        onPressed: () {
+          showModalBottomSheet(
+              context: context,
+              builder: (context) {
+                return const AddNoteDialog();
+              });
+        },
+        backgroundColor: Colors.lime,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),
         ),

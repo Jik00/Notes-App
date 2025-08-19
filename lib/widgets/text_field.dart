@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+import 'package:notes_app/constants.dart';
+
+class InputTextField extends StatelessWidget {
+  InputTextField({super.key, required this.hint, this.onChanged, this.textInput, this.maxLines = 1});
+
+  final String hint;
+  TextInputType? textInput;
+  int maxLines;
+
+  Function(String)? onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      keyboardType: textInput,
+      maxLines: maxLines,
+      onChanged: onChanged,
+      style: const TextStyle(color: kSecondaryColor, fontSize: 22),
+      decoration: InputDecoration(
+          hintText: hint,
+          hintStyle: const TextStyle(color: kSecondaryColor, fontSize: 18),
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 30, horizontal: 16),
+          fillColor: kPrimaryColor,
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: kThirdColor, width: 2),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: kSecondaryColor, width: 2),
+            borderRadius: BorderRadius.circular(12),
+          )),
+    );
+  }
+}
