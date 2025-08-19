@@ -5,7 +5,7 @@ class CustomButton extends StatelessWidget {
   CustomButton({super.key, required this.hint, this.onTap});
 
   final String hint;
-  VoidCallback? onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
