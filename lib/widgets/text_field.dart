@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/constants.dart';
 
 class InputTextField extends StatelessWidget {
-  InputTextField({super.key, required this.hint, this.onChanged, this.textInput, this.maxLines = 1});
+  InputTextField(
+      {super.key,
+      required this.hint,
+      this.onChanged,
+      this.textInput,
+      this.maxLines = 1});
 
   final String hint;
   TextInputType? textInput;
@@ -16,6 +21,7 @@ class InputTextField extends StatelessWidget {
       keyboardType: textInput,
       maxLines: maxLines,
       onChanged: onChanged,
+      cursorColor: kThirdColor,
       style: const TextStyle(color: kSecondaryColor, fontSize: 22),
       decoration: InputDecoration(
           hintText: hint,

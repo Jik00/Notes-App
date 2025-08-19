@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/helper/random_color_method.dart';
 
 class NoteItem extends StatelessWidget {
   const NoteItem({super.key});
@@ -7,7 +8,7 @@ class NoteItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.amber,
+        color: getRandomPastelColor(),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
