@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/helper/random_color_method.dart';
-import 'package:notes_app/widgets/add_note_dialog.dart';
 import 'package:notes_app/widgets/custom_appbar.dart';
+import 'package:notes_app/widgets/floating_action_button_add_note.dart';
 import 'package:notes_app/widgets/notes_listview.dart';
 
 class NotesView extends StatelessWidget {
@@ -11,26 +10,10 @@ class NotesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showModalBottomSheet(
-              context: context,
-              builder: (context) {
-                return const AddNoteDialog();
-              });
-        },
-        backgroundColor: getRandomPastelColor(),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(24),
-        ),
-        child: const Icon(
-          Icons.add,
-          size: 32,
-          color: Colors.black,
-        ),
-      ),
-      body: const Padding(
+    return const Scaffold(
+      floatingActionButton: FloatingActionButtonAddNote(),
+
+      body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 18, vertical: 24),
         child: Column(
           children: [
@@ -49,3 +32,4 @@ class NotesView extends StatelessWidget {
     );
   }
 }
+
