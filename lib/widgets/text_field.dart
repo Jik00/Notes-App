@@ -10,8 +10,8 @@ class InputTextField extends StatelessWidget {
       this.maxLines = 1});
 
   final String hint;
-  TextInputType? textInput;
-  int maxLines;
+  final TextInputType? textInput;
+  final int maxLines;
 
   Function(String)? onChanged;
 
