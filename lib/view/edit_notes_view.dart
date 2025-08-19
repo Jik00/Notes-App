@@ -20,11 +20,11 @@ class EditNotesView extends StatelessWidget {
               ),
               const CustomAppbar(title: 'Edit Note', icon: Icons.done),
               const SizedBox(height: 32),
-              InputTextField(hint: 'title', onChanged: (value) {}),
+              InputTextField(hint: 'title', onSaved: (value) {}),
               const SizedBox(height: 16),
               InputTextField(
                   hint: 'description',
-                  onChanged: (value) {},
+                  onSaved: (value) {},
                   textInput: TextInputType.multiline,
                   maxLines: 5),
             ],

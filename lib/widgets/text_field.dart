@@ -5,7 +5,7 @@ class InputTextField extends StatelessWidget {
   InputTextField(
       {super.key,
       required this.hint,
-      this.onChanged,
+      this.onSaved,
       this.textInput,
       this.maxLines = 1});
 
@@ -13,14 +13,20 @@ class InputTextField extends StatelessWidget {
   final TextInputType? textInput;
   final int maxLines;
 
-  Function(String)? onChanged;
+  final void Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       keyboardType: textInput,
       maxLines: maxLines,
-      onChanged: onChanged,
+      onSaved: onSaved,
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return 'Please enter $hint';
+        }
+        return null;
+      },
       cursorColor: kThirdColor,
       style: const TextStyle(color: kSecondaryColor, fontSize: 22),
       decoration: InputDecoration(
