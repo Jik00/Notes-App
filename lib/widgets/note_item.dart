@@ -21,14 +21,15 @@ class NoteItem extends StatelessWidget {
               child: Text(
                 "Flutter Tips",
                 style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 24,
                     fontWeight: FontWeight.bold),
               ),
             ),
-            subtitle: const Text(
+            subtitle: Text(
               "Learn how to build beautiful apps with Flutter.",
-              style: TextStyle(color: Colors.white, fontSize: 20),
+              style:
+                  TextStyle(color: Colors.black.withOpacity(0.6), fontSize: 20),
             ),
             trailing: IconButton(
               onPressed: () {},
@@ -39,12 +40,12 @@ class NoteItem extends StatelessWidget {
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(right: 24),
+          Padding(
+            padding: const EdgeInsets.only(right: 24),
             child: Text(
               "11/20/2028",
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.black.withOpacity(0.6),
                 fontSize: 18,
               ),
             ),
