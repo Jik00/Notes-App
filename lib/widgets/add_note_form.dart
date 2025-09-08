@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/widgets/custom_button.dart';
 import 'package:notes_app/widgets/text_field.dart';
 
@@ -44,12 +46,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
               onTap: () {
                 if (formKey.currentState!.validate()) {
                   formKey.currentState!.save();
-                  // autovalidateMode = AutovalidateMode.disabled;
-                  // Here you would typically save the note to your database
-                  // For example, using Hive or any other storage solution
-                  // After saving, you might want to clear the fields or navigate back
-
-                  Navigator.pop(context);
+                  // our logic to add the new note
+                  BlocProvider.of<AddNoteCubit>(context)
+                      .addNote(title!, description!);
+                      
                 } else {
                   autovalidateMode = AutovalidateMode.always;
                   setState(() {});
