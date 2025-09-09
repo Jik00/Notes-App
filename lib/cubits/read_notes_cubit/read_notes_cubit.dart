@@ -11,12 +11,10 @@ class ReadNotesCubit extends Cubit<ReadNotesState> {
   List<NoteModel>? notes;
   void readNotes() {
     // why there is no loading state? cuz there's no future to await for
-    try {
-      final notesBox = Hive.box<NoteModel>(kNotesBox);
-      notes = notesBox.values.toList();
-      emit(ReadNotesSuccess(notes));
-    } catch (e) {
-      emit(ReadNotesFailure(e.toString()));
-    }
+    // also no need for try catch as it's a simple logic
+    final notesBox = Hive.box<NoteModel>(kNotesBox);
+    notes = notesBox.values.toList();
+
+    emit(ReadNotesSuccess());
   }
 }

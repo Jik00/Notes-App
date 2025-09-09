@@ -13,7 +13,7 @@ class NotesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ReadNotesCubit(),
+      create: (context) => ReadNotesCubit()..readNotes(),// to read notes when the view is created
       child: const Scaffold(
         floatingActionButton: FloatingActionButtonAddNote(),
         body: Padding(
