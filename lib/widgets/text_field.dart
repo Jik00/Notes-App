@@ -6,12 +6,14 @@ class InputTextField extends StatelessWidget {
       {super.key,
       required this.hint,
       this.onSaved,
+      this.onChanged,
       this.textInput,
       this.maxLines = 1});
 
   final String hint;
   final TextInputType? textInput;
   final int maxLines;
+  void Function(String)? onChanged;
 
   final void Function(String?)? onSaved;
 
@@ -21,6 +23,7 @@ class InputTextField extends StatelessWidget {
       keyboardType: textInput,
       maxLines: maxLines,
       onSaved: onSaved,
+      onChanged: onChanged,
       validator: (value) {
         if (value?.isEmpty ?? true) {
           return 'Please enter $hint';

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CustomSearchIcon extends StatefulWidget {
-  const CustomSearchIcon({super.key, required this.icon});
+  const CustomSearchIcon({super.key, required this.icon, this.onPressed});
 
   final IconData icon;
+  final void Function()? onPressed;
 
   @override
   State<CustomSearchIcon> createState() => _CustomSearchIconState();
@@ -39,10 +40,13 @@ class _CustomSearchIconState extends State<CustomSearchIcon> {
           )),
       child: IconButton(
         onPressed: () {
+          
+          // if there's an external onPressed, call it 
+          widget.onPressed?.call();
           widget.icon == Icons.done
               ? Navigator.pop(context)
-              : _toggleContainer();
-          ;
+              : _toggleContainer();  
+
         },
         icon: Icon(
           widget.icon,

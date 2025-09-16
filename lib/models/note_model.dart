@@ -18,4 +18,18 @@ class NoteModel extends HiveObject {
       required this.subtitle,
       required this.date,
       required this.id});
+
+  NoteModel copyWith({
+    String? title,
+    String? subtitle,
+    String? date,
+    String? id,
+  }) {
+    return NoteModel(
+      title: title ?? this.title,
+      subtitle: subtitle ?? this.subtitle,
+      date: date ?? this.date,
+      id: id ?? this.id,
+    );
+  }
 }
